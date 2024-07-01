@@ -58,8 +58,8 @@ const dataPost = (req, res) => {
         // potassium (K)(Kg/ha)	"double"
         // rainfall( in mm)	"double"
         // temperature (C)
-        
-        const payload = {"input_data": [{"fields": ["Nitrogen(N)(Kg/ha)","Soil EC", "humidity(%)", "ph","phosphorus (P)(Kg/ha)","potassium (K)(Kg/ha)", "rainfall( in mm)", "temperature (C)"],"values": [[n,sec,h,ph,p,k,r,t]]}]};
+
+        const payload = {"input_data": [{"fields": ["Nitrogen(N)(Kg/ha)","Soil EC", "humidity(%)", "ph","phosphorus (P)(Kg/ha)","potassium (K)(Kg/ha)","rainfall( in  mm)", "temperature (C)"],"values": [[n,sec,h,ph,p,k,r,t]]}]};
 
         // const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
         const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
