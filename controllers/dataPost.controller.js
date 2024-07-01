@@ -49,12 +49,22 @@ const dataPost = (req, res) => {
             return res.status(500).send("Error while parsing token response");
         }
 
-        const payload = {"input_data": [{"fields": ["Nitrogen(N)","Soil EC", "Humidity", "PH","Phosphorus (P)","Potassium (K)", "Rainfall", "Temperature (C)"],"values": [[n,sec,h,ph,p,k,r,t]]}]};
+        	
+        // Nitrogen(N)(Kg/ha)	"double"
+        // Soil EC	"double"
+        // humidity(%)	"double"
+        // ph	"double"
+        // phosphorus (P)(Kg/ha)	"double"
+        // potassium (K)(Kg/ha)	"double"
+        // rainfall( in mm)	"double"
+        // temperature (C)
+        
+        const payload = {"input_data": [{"fields": ["Nitrogen(N)(Kg/ha)","Soil EC", "humidity(%)", "ph","phosphorus (P)(Kg/ha)","potassium (K)(Kg/ha)", "rainfall( in mm)", "temperature (C)"],"values": [[n,sec,h,ph,p,k,r,t]]}]};
 
         // const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
         const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
 
-        const scoring_url = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/crop_detection/predictions?version=2021-05-01";
+        const scoring_url = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/plant/predictions?version=2021-05-01";
 
         console.log("Sending scoring request to:", scoring_url);
         console.log("Payload:", payload);
