@@ -50,21 +50,21 @@ const dataPost = (req, res) => {
         }
 
         	
-        // Nitrogen(N)(Kg/ha)	"double"
-        // Soil EC	"double"
-        // humidity(%)	"double"
-        // ph	"double"
-        // phosphorus (P)(Kg/ha)	"double"
-        // potassium (K)(Kg/ha)	"double"
-        // rainfall( in mm)	"double"
-        // temperature (C)
+        // "Nitrogen(N)(Kg/ha)",
+        // "phosphorus (P)(Kg/ha)",
+        // "potassium (K)(Kg/ha)",
+        // "temperature (C)",
+        // "humidity(%)",
+        // "ph",
+        // "rainfall( in  mm)",
+        // "Soil EC"
 
         const payload = {"input_data": [{"fields": ["Nitrogen(N)(Kg/ha)","Soil EC", "humidity(%)", "ph","phosphorus (P)(Kg/ha)","potassium (K)(Kg/ha)","rainfall( in  mm)", "temperature (C)"],"values": [[n,sec,h,ph,p,k,r,t]]}]};
 
         // const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
         const payloadString = JSON.stringify(payload); // Stringify the payload directly before sending
 
-        const scoring_url = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/plant/predictions?version=2021-05-01";
+        const scoring_url = process.env.URL;
 
         console.log("Sending scoring request to:", scoring_url);
         console.log("Payload:", payload);
